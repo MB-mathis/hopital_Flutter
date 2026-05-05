@@ -7,7 +7,8 @@ class ApiRoutes {
   static const login = "/api/login_check";
 
   // USERS
-  static const users = "/api/users";
+  /// static const users = "/api/users"; // n existe pas encore, mais pourrait être utile pour la gestion des utilisateurs
+  static const me = "/api/me";
 
   // CORE HOSPITAL (MVP important)
   static const patients = "/api/patients";

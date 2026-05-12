@@ -49,6 +49,9 @@ class AuthService {
     }
 
     final token = await getToken();
+
+    print("WEB TOKEN = $token");
+
     if (token == null) return false;
 
     try {
@@ -60,7 +63,7 @@ class AuthService {
       _user = null;
       return false;
     }
-  } 
+  }
 
   // 👤 getter user
   Map<String, dynamic>? getUser() => _user;
@@ -76,36 +79,5 @@ class AuthService {
   Future<bool> isLoggedIn() async {
     final token = await getToken();
     return token != null && token.isNotEmpty;
-  }
-
-
-  Future<List<dynamic>> getPatients() async {
-    final token = await getToken();
-    if (token == null) return [];
-
-    try {
-      final response = await api.getPatients(token);
-
-      final data = response.data;
-
-      // 🔥 CAS 1 : API renvoie directement une liste
-      if (data is List) {
-        return data;
-      }
-
-      // 🔥 CAS 2 : API Platform (fallback)
-      if (data is Map && data['hydra:member'] != null) {
-        return List.from(data['hydra:member']);
-      }
-
-      return [];
-    } catch (e) {
-      print("GetPatients error: $e");
-      return [];
-    }
-  }
-  Future<int> getPatientsCount() async {
-    final patients = await getPatients();
-    return patients.length;
   }
 }

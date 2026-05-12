@@ -44,4 +44,14 @@ class ApiService {
       ),
     );
   }
+  Future<Response> getPatient(int id, String token) async {
+    return dio.get(
+      ApiRoutes.patient(id),
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      ),
+    );
+  }
 }

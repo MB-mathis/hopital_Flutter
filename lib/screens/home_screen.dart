@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
+import '../services/patient_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final AuthService auth = AuthService();
+  final PatientService patientService = PatientService();
 
   Map<String, dynamic>? user;
   int patientCount = 0;
@@ -34,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     // ✅ charger uniquement les données métier
-    final count = await auth.getPatientsCount();
+    final count = await patientService.getPatientsCount();
 
     setState(() {
       user = data;

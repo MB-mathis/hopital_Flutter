@@ -1,17 +1,18 @@
 class ApiRoutes {
-  // Routes de l'API (api_routes.dart)
-
-  static const baseUrl = "https://declaratory-aleena-heatedly.ngrok-free.dev";
+  static const baseUrl =
+      "https://declaratory-aleena-heatedly.ngrok-free.dev";
 
   // AUTH
   static const login = "/api/login_check";
 
   // USERS
-  /// static const users = "/api/users"; // n existe pas encore, mais pourrait être utile pour la gestion des utilisateurs
   static const me = "/api/me";
 
-  // CORE HOSPITAL (MVP important)
+  // CORE HOSPITAL
   static const patients = "/api/patients";
+
+  static String patient(int id) => "/api/patients/$id";
+
   static const consultations = "/api/consultations";
   static const dossierMedical = "/api/dossier_medicals";
   static const greffes = "/api/greffes";
@@ -25,6 +26,7 @@ class ApiRoutes {
   static const serologies = "/api/serologies";
   static const prelevements = "/api/prelevements";
   static const groupeHLA = "/api/groupe_h_l_as";
+
   static const conditionnementImmunologiques =
       "/api/conditionnement_immunologiques";
 

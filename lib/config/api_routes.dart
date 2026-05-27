@@ -1,6 +1,6 @@
 class ApiRoutes {
   static const baseUrl =
-      "https://declaratory-aleena-heatedly.ngrok-free.dev";
+      "https://std29.beaupeyrat.com";
 
   // AUTH
   static const login = "/api/login_check";

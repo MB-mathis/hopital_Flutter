@@ -1,6 +1,6 @@
 class ApiRoutes {
   static const baseUrl =
-      "http://195.83.236.181";
+      "http://10.187.22.29";
 
   // AUTH
   static const login = "/api/login_check";
